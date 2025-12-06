@@ -24,7 +24,9 @@ jobs:
           pip install pytest
 
       - name: Run unit tests
-        run: pytest -q
+        run: |
+          export PYTHONPATH="$PYTHONPATH:$(pwd)"
+          pytest -q
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
